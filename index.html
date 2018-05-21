@@ -5,13 +5,13 @@
     <title>TELCA </title>
 </head>
 <body>
-    <div id="app"></div>
+    <div id="app">
+      
+      <button onclick="firebaseSwitch(1)">LED ON</button>
+            <button onclick="firebaseSwitch(2)">LED OFF</button>
+    </div>
 
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.min.js"
-      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-      crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+   <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
 <script>
   // Initialize Firebase
   var config = {
@@ -23,11 +23,9 @@
     messagingSenderId: "805756173961"
   };
   firebase.initializeApp(config);
+
       var controlRef = firebase.database().ref('control');
-      $('#app').html(`
-            <button onclick="firebaseSwitch(1)">LED ON</button>
-            <button onclick="firebaseSwitch(2)">LED OFF</button>
-        `);
+     
         function firebaseSwitch(state){
             switch(state){
                 case 1: 
